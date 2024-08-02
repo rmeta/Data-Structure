@@ -49,7 +49,5 @@
         YES<br>
         3
     </p>
-    <h2>Name</h2>
-    <p><b>"Dynamic Set Operations: Add, Check, and Count"</b></p>
 </body>
 </html>
