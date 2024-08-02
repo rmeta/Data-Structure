@@ -1,7 +1,3 @@
-<h1>Data Structure Projects</h1>
-
-<p>This repository contains a collection of my projects on data structures. Each project demonstrates different data structures and their applications.</p>
-
 <h2>Divisibility Queries Project</h2>
 
 <h3>Problem Description</h3>
