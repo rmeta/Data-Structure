@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Card Shuffling Problem</title>
-</head>
-<body>
-
 <h1>Card Shuffling Problem</h1>
 
 <p>Shuffling refers to the process of mixing and rearranging playing cards. In this problem, you will implement a specific shuffling technique. Initially, you have <code>n</code> cards numbered from 1 to <code>n</code>, stacked in order with card number <code>n</code> on top. You perform a series of operations to shuffle the cards.</p>
