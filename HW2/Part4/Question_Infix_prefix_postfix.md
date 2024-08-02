@@ -1,67 +1,48 @@
-def infix_to_postfix(infix):
-    precedence = {'+': 1, '-': 1, '*': 2, '/': 2}
-    output = []
-    operators = []
-    
-    for char in infix:
-        if char.isdigit():
-            output.append(char)
-        elif char == '(':
-            operators.append(char)
-        elif char == ')':
-            while operators and operators[-1] != '(':
-                output.append(operators.pop())
-            operators.pop()  # Remove '('
-        else:  # Operator
-            while (operators and operators[-1] != '(' and
-                   precedence[char] <= precedence.get(operators[-1], 0)):
-                output.append(operators.pop())
-            operators.append(char)
-    
-    while operators:
-        output.append(operators.pop())
-    
-    return ''.join(output)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infix and Prefix/Postfix Conversion</title>
+</head>
+<body>
+    <h1>Infix and Prefix/Postfix Conversion</h1>
+    <p>
+        Ehsan is having trouble converting between infix, prefix, and postfix expressions. Help Ehsan by converting an infix expression to prefix notation if provided, or converting a prefix expression to postfix notation if provided. This will allow Ehsan to easily obtain the prefix and postfix notations of an infix expression with two uses of the program.
+    </p>
 
-def postfix_to_prefix(postfix):
-    stack = []
-    
-    for char in postfix:
-        if char.isdigit():
-            stack.append(char)
-        else:
-            op2 = stack.pop()
-            op1 = stack.pop()
-            stack.append(char + op1 + op2)
-    
-    return stack[0]
+    <h2>Input</h2>
+    <p>
+        A single line containing a mathematical expression with up to 1000 characters. The expression will include single-digit non-negative integers and operators such as `+`, `-`, `*`, `/`, and parentheses `(` and `)`.
+    </p>
 
-def infix_to_prefix(infix):
-    postfix_expr = infix_to_postfix(infix)
-    return postfix_to_prefix(postfix_expr)
+    <h2>Output</h2>
+    <p>
+        On a single line, if the input is an infix expression, print the prefix notation of the expression. If the input is a prefix expression, print the postfix notation of the expression.
+    </p>
 
-def prefix_to_postfix(prefix):
-    stack = []
-    
-    for char in reversed(prefix):
-        if char.isdigit():
-            stack.append(char)
-        else:
-            op1 = stack.pop()
-            op2 = stack.pop()
-            stack.append(op1 + op2 + char)
-    
-    return stack[0]
+    <h2>Constraints</h2>
+    <ul>
+        <li>1 ≤ |input| ≤ 1000</li>
+    </ul>
 
-def convert_expression(expression):
-    if '(' in expression or ')' in expression:
-        # Infix to Prefix
-        return infix_to_prefix(expression)
-    else:
-        # Prefix to Postfix
-        return prefix_to_postfix(expression)
+    <h2>Examples</h2>
+    <h3>Example 1</h3>
+    <pre>
+Input:
+(1-2/3)*(1/4-5)
 
-if __name__ == "__main__":
-    import sys
-    input_expression = sys.stdin.read().strip()
-    print(convert_expression(input_expression))
+Output:
+*-1/23-/145
+    </pre>
+
+    <h3>Example 2</h3>
+    <pre>
+Input:
+*-1/23-/145
+
+Output:
+123/-14/5-*
+    </pre>
+</body>
+</html>
